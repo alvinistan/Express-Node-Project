@@ -70,3 +70,9 @@ const updatedUser = {
 }
 
 console.log(updatedUser);
+
+//5️⃣ Rest Operator (...)
+//Rest collects remaining values.
+
+const [first1, ...rest1] = [10,20,30,40];
+console.log(rest1);

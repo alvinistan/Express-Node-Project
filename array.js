@@ -18,21 +18,30 @@
 // const found = numbers.find(n => n === 15);
 // console.log(found);
 
-const user = {
-    name: "Leenas",
-    age: 25,
-    country: "Sri Lanka"
-}
+// Objects destructuring
 
-console.log(Object.keys(user));
-console.log(user.name);
-console.log(user.age);
-console.log(user.country);
+// const user = {
+//     name: "Leenas",
+//     age: 25,
+//     country: "Sri Lanka"
+// }
 
-const {name, age, country} = user;
-console.log(name);
+// console.log(Object.keys(user));
+// console.log(user.name);
+// console.log(user.age);
+// console.log(user.country);
 
-const {name: userName, age: userAge, country: userCountry} = user;
-console.log(userName);
-console.log(userAge);
-console.log(userCountry);
+// const {name, age, country} = user;
+// console.log(name);
+
+// const {name: userName, age: userAge, country: userCountry} = user;
+// console.log(userName);
+// console.log(userAge);
+// console.log(userCountry);
+
+// Array destructuring
+
+const fruits = ['Apple', 'Banana', 'Cherray', 'Date'];
+
+const [first, second, ...rest] = fruits;
+console.log(rest);

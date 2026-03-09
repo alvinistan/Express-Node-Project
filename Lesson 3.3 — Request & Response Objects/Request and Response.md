@@ -103,3 +103,17 @@ app.post("/users",(req,res)=>{
 Explanation:
 
     express.json() → parses JSON request body
+
+
+    🎉 Great Progress
+
+You now understand:
+
+✔ Express server
+✔ Routes
+✔ HTTP methods
+✔ Request object
+✔ Response object
+✔ Params, Query, Body
+
+These are core backend skills.

@@ -19,3 +19,11 @@ Middleware Flow
     Route Handler
           ↓
     Response
+
+    What is next()?
+
+next() tells Express:
+    Go to the next middleware or route
+
+If next() is not called:
+    Request stops

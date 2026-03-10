@@ -37,6 +37,17 @@ app.use((err, req, res, next) => {
     res.status(500).send('Internal Server Error: ' + err.message); // Send a generic error response
 });
 
+// Async Error Handling
+// Many APIs use async/await
+
+app.get('/users', async (req,res) => {
+    try {
+        const users = await database.getUsers();
+        res.json(users);
+    } catch (error) {
+        res.status(500).send('Failed to fetch users:' + error.message);
+    }
+})
 
 
 app.listen(3000, () => {

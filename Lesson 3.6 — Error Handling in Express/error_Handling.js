@@ -31,11 +31,6 @@ app.get('/error', (req, res, next) => {
     next(error); // Pass the error to the error-handling middleware
 })
 
-// Error-handling middleware
-app.use((err, req, res, next) => {
-    console.error(err.stack); // Log the error stack trace
-    res.status(500).send('Internal Server Error: ' + err.message); // Send a generic error response
-});
 
 // Async Error Handling
 // Many APIs use async/await
@@ -49,6 +44,29 @@ app.get('/users', async (req,res) => {
     }
 })
 
+//Without try...catch, the server may crash.
+
+
+app.get('/user/:id', async (req,res, next) => {
+    try {
+        const user = null; // Simulate a user not found scenario
+            if(!user) {
+                const err = new Error
+                err.status = 404;
+                throw err; // Throw the error to be caught by the error-handling middleware
+            }
+            res.json(user);
+    } catch (error) {
+        next(error); // Pass the error to the error-handling middleware
+    }
+});
+
+app.use((err, req, res, next) => {
+    res.status(err.status || 500).json({
+        success: false,
+        message: err.message || 'Internal Server error'
+    })
+})
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000');

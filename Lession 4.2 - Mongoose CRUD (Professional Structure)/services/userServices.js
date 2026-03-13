@@ -6,9 +6,15 @@ const createUser = async (userData) => {
 };
 
 // Get all users
-const getAllUsers = async () => {
-    return await User.find();
+const getAllUsers = async (filter, sort, skip, limit) => {
+    return await User.find(filter)
+    .sort({ [sort] : 1})
+    .skip(skip)
+    .limit(limit);
 }
+const getUsersCount = async (filter) => {
+    return await User.countDocuments(filter);
+  };
 
 // Get a user by ID
 const getUserById = async (userId) => {
@@ -30,5 +36,6 @@ module.exports = {
     getAllUsers,
     getUserById,
     updateUserById,
-    deleteUserById
+    deleteUserById,
+    getUsersCount
 }

@@ -11,6 +11,7 @@ const registerUser = async (req, res, next) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
+        role: user.role,
         createdAt: user.createdAt,
       },
     });
@@ -25,13 +26,13 @@ const loginUser = async (req, res, next) => {
     res.status(200).json({
       message: "Login Successful",
       token: user.token,
-      user: {
-        _id: user._id,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        role: user.role,
-        createdAt: user.createdAt,
+      userList: {
+        _id: user.user._id,
+        firstName: user.user.firstName,
+        lastName: user.user.lastName,
+        email: user.user.email,
+        role: user.user.role,
+        createdAt: user.user.createdAt,
       },
     });
   } catch (error) {

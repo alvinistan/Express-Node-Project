@@ -2,6 +2,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 require("dotenv").config();
 const authRoutes = require("./routes/authRoutes");
+const userRoutes = require("./routes/userRoutes");
 const errorMiddleware = require("./middleware/errorMiddleware");
 
 // Initialize Express app
@@ -14,6 +15,7 @@ connectDB();
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 // Define routes
 app.use(errorMiddleware);

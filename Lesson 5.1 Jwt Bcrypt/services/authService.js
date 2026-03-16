@@ -42,6 +42,7 @@ const registerUser = async (userData) => {
   return user;
 };
 
+
 const loginUser = async (email, password) => {
   const user = await User.findOne({ email });
 
